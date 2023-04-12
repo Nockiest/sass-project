@@ -1,3 +1,36 @@
-h1, h2 {
-  font-family: Lato;
+@import "partials/variables";
+@import "partials/mixins";
+
+
+body {
+    background-color: $body-background;
+    @include container;
+}
+
+header {
+  height: $header-height;
+  @include header-footer-style;
+
+
+  h1 {
+      margin-top: 0;
+      line-height: $header-height;
+  }
+}
+.about-us {
+
+
+  h2, p {
+      color: $text-color;
+  }
+}
+
+
+footer {
+  height: $footer-height;
+  @include header-footer-style;
+  
+  p {
+      line-height: $footer-height;
+  }
 }
