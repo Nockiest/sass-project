@@ -1,7 +1,36 @@
-@import "partials/variables";
-@import "partials/mixins";
+//@import "partials/variables";
+//@import "partials/mixins";
+//@import "partials/functions";
+@function col-width($columns: 12, $page-width: 100%, $gap: 0.1%) {
+  @debug "col-width function arguments: columns = #{$columns}, page-width = #{$page-width}, gap = #{$gap}";
+  @return ($page-width - $gap*($columns - 1)) / $columns;
+}
 
+$body-background: #fff;
+$header-footer-background: rgb(75, 15, 60);
+$text-head-foot-color: #fff;
+$text-color: black;
 
+// === SIZES ===
+$header-height: 50px;
+$footer-height: 50px;
+
+@mixin container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+@mixin header-footer-style {
+background: $header-footer-background;
+color: $text-head-foot-color;
+text-align: center;
+}
+
+@mixin theme-box {
+width: 6 * col-width(12,100%,0.1%);
+}
+ 
+ 
 body {
     background-color: $body-background;
     @include container;
@@ -23,6 +52,11 @@ header {
   h2, p {
       color: $text-color;
   }
+}
+ 
+.theme {
+    @include theme-box;
+    display: inline-block;
 }
 
 
